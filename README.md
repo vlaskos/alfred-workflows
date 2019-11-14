@@ -2,8 +2,6 @@
 
 A collection of Alfred workflows.
 
------------------
------------------
 
 kill-process
 ------------
