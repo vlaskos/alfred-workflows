@@ -24,12 +24,12 @@ Hide Desktop
 hide icons on desctop
 [Binary download](https://github.com/vlaskos/alfred-workflows/raw/master/Hide%20Desktop.alfredworkflow)
 
-Layouts
+Div
 ------------
 
 resize windows by shortcats like a magnet app
-http://projects.jga.me/layouts/
-[Binary download](https://github.com/vlaskos/alfred-workflows/raw/master/Layouts.alfredworkflow)
+http://www.packal.org/workflow/div
+[Binary download](https://github.com/vlaskos/alfred-workflows/blob/master/div.alfredworkflow)
 
 Lorem Ipsum
 ------------
