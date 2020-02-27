@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<workflow>
+  <name>Display Month Calendar</name>
+  <version>1.0.</version>
+  <bundle>com.alfredapp.month.cal.display</bundle>
+  <updated>1560544756</updated>
+  <file>display_month_calendar.alfredworkflow</file>
+</workflow>
