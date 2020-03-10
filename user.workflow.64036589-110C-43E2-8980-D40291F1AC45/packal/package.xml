@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<workflow>
+  <name>Google Apps</name>
+  <version>0.2</version>
+  <bundle>com.pierbover.googleapps</bundle>
+  <updated>1461595274</updated>
+  <file>googleapps.alfredworkflow</file>
+</workflow>
