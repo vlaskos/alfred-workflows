@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string></string>
+	<key>connections</key>
+	<dict>
+		<key>A00597EC-7CB5-410D-9154-ACF847EB5A56</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>DB50F272-99EE-4E03-B7DA-1778309E5438</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>DB50F272-99EE-4E03-B7DA-1778309E5438</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>CC9F6AD6-2CBC-4AFA-801B-B354390EF4B3</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>F1AF6C1F-6195-48AF-B16C-016FB84CB2BD</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Gimmy Huang</string>
+	<key>description</key>
+	<string>Shorten the url via bitly</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Bit.ly URL Shorten</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<true/>
+				<key>escaping</key>
+				<integer>59</integer>
+				<key>script</key>
+				<string>#!/bin/bash
+
+export PATH=$JQPATH:$PATH
+access_token=$BITLY_ACCESS_TOKEN
+
+curl --location --request POST "https://api-ssl.bitly.com/v4/shorten" \
+    --header "Content-Type: application/json" \
+    --header "Authorization: Bearer $access_token" \
+    --data-raw "{
+        \"long_url\": \"{query}\"
+    }" | jq -r ".link"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>DB50F272-99EE-4E03-B7DA-1778309E5438</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string></string>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>CC9F6AD6-2CBC-4AFA-801B-B354390EF4B3</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>bitly</string>
+				<key>subtext</key>
+				<string>Copies a custom bit.ly url to the clipboard</string>
+				<key>text</key>
+				<string>Bit.ly Link</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>A00597EC-7CB5-410D-9154-ACF847EB5A56</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Link Copied.  {query}</string>
+				<key>title</key>
+				<string>Bit-ly</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>F1AF6C1F-6195-48AF-B16C-016FB84CB2BD</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string># workflow-bitly
+Alfred 4.0 workflow which shorten the url via bitly
+
+
+## Requirement
+
+[jq installation](https://stedolan.github.io/jq/download/) 
+
+MacOS
+
+``` sh
+brew install jq
+```
+
+
+## Usage
+
+1. Download and import the workflow
+2. Set the environment of `JQPATH`, `BITLY_ACCESS_TOKEN`
+
+// TODO...</string>
+	<key>uidata</key>
+	<dict>
+		<key>A00597EC-7CB5-410D-9154-ACF847EB5A56</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>CC9F6AD6-2CBC-4AFA-801B-B354390EF4B3</key>
+		<dict>
+			<key>xpos</key>
+			<integer>700</integer>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>DB50F272-99EE-4E03-B7DA-1778309E5438</key>
+		<dict>
+			<key>xpos</key>
+			<integer>500</integer>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>F1AF6C1F-6195-48AF-B16C-016FB84CB2BD</key>
+		<dict>
+			<key>xpos</key>
+			<integer>700</integer>
+			<key>ypos</key>
+			<real>130</real>
+		</dict>
+	</dict>
+	<key>variables</key>
+	<dict>
+		<key>BITLY_ACCESS_TOKEN</key>
+		<string></string>
+		<key>JQPATH</key>
+		<string></string>
+	</dict>
+	<key>variablesdontexport</key>
+	<array>
+		<string>BITLY_ACCESS_TOKEN</string>
+		<string>JQPATH</string>
+	</array>
+	<key>version</key>
+	<string>0.9.0</string>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>
